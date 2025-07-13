@@ -1,15 +1,15 @@
 return {
-  -- 1. Load LazyVim core plugins first (must be first!)
+  -- 1. load lazyvim core plugins first (must be first!)
   { import = "lazyvim.plugins" },
 
-  -- 2. LazyVim extras
+  -- 2. lazyvim extras
   --{ import = "lazyvim.plugins.extras.ui.mini-starter" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.json" },
 
-  -- 3. Your custom plugins
+  -- 3. your custom plugins
 
-  -- Enable emoji completion in nvim-cmp
+  -- enable emoji completion in nvim-cmp
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
@@ -18,7 +18,7 @@ return {
     end,
   },
 
-  -- Customize telescope layout and add plugin file keymap
+  -- customize telescope layout and add plugin file keymap
   {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -29,7 +29,7 @@ return {
             cwd = require("lazy.core.config").options.root,
           })
         end,
-        desc = "Find Plugin File",
+        desc = "find plugin file",
       },
     },
     opts = {
@@ -42,7 +42,7 @@ return {
     },
   },
 
-  -- Setup pyright (Python LSP)
+  -- setup pyright (python lsp)
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -52,20 +52,20 @@ return {
     },
   },
 
-  -- Setup tsserver with typescript.nvim
+  -- setup tsserver with typescript.nvim
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
       init = function()
         require("lazyvim.util").lsp.on_attach(function(_, buffer)
-          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", {
+          vim.keymap.set("n", "<leader>co", "typescriptorganizeimports", {
             buffer = buffer,
-            desc = "Organize Imports",
+            desc = "organize imports",
           })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", {
+          vim.keymap.set("n", "<leader>cr", "typescriptrenamefile", {
             buffer = buffer,
-            desc = "Rename File",
+            desc = "rename file",
           })
         end)
       end,
@@ -83,13 +83,14 @@ return {
     },
   },
 
-  -- Extend treesitter language support
+  -- extend treesitter language support
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "bash",
         "html",
+        "css",
         "javascript",
         "json",
         "lua",
@@ -106,10 +107,10 @@ return {
     end,
   },
 
-  -- Customize lualine with a smiley icon
+  -- customize lualine with a smiley icon
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    event = "verylazy",
     opts = function(_, opts)
       table.insert(opts.sections.lualine_x, {
         function()
@@ -119,7 +120,7 @@ return {
     end,
   },
 
-  -- Add development tools via mason
+  -- add development tools via mason
   {
     "williamboman/mason.nvim",
     opts = {
