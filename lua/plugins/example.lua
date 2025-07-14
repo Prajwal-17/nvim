@@ -107,19 +107,6 @@ return {
     end,
   },
 
-  -- customize lualine with a smiley icon
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "verylazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
-        function()
-          return "😄"
-        end,
-      })
-    end,
-  },
-
   -- add development tools via mason
   {
     "williamboman/mason.nvim",
@@ -128,7 +115,6 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        "flake8",
       },
     },
   },

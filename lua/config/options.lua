@@ -5,3 +5,4 @@
 vim.opt.wrap = true -- Enable soft wrapping
 vim.opt.linebreak = true -- Wrap at word boundaries
 vim.opt.breakindent = true -- Keep indentation on wrapped lines
+vim.o.termguicolors = true
