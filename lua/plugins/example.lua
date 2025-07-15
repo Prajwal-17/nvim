@@ -42,12 +42,40 @@ return {
     },
   },
 
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+
   -- setup pyright (python lsp)
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {},
+        vtsls = {
+          settings = {
+            typescript = {
+              inlayHints = {
+                parameterNames = { enabled = "none" },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false }, -- ✅ disables `: void`
+                enumMemberValues = { enabled = false },
+              },
+            },
+            javascript = {
+              inlayHints = {
+                parameterNames = { enabled = "none" },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false }, -- ✅ disables `: void`
+                enumMemberValues = { enabled = false },
+              },
+            },
+          },
+        },
       },
     },
   },
