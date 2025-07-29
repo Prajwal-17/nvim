@@ -18,6 +18,13 @@ return {
     end,
   },
 
+  {
+    "folke/todo-comments.nvim",
+    event = "LazyFile",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true,
+  },
+
   -- customize telescope layout and add plugin file keymap
   {
     "nvim-telescope/telescope.nvim",
@@ -143,6 +150,31 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
+        "prettier",
+      },
+    },
+  },
+
+  -- a formater plugin built-in with lazyvim, autoformat on save like vscode
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      format_on_save = {
+        lsp_fallback = true,
+        timeout_ms = 1000,
+      },
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        vue = { "prettier" },
+        svelte = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
       },
     },
   },
